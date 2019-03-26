@@ -1,0 +1,5 @@
+'(require collatz-test)
+(require 'collatz-test)
+(require 'collatz-conjecture-test)
+(clojure.test/run-test 'collatz-conjecture-test )
+(clojure.test/run-tests 'collatz-conjecture-test )
