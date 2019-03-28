@@ -3,3 +3,8 @@
 (require 'collatz-conjecture-test)
 (clojure.test/run-test 'collatz-conjecture-test )
 (clojure.test/run-tests 'collatz-conjecture-test )
+(require 'collatz-conjecture-test)
+(clojure.test/run-tests 'collatz-conjecture-test)
+(require 'collatz-conjecture-test)
+(clojure.test/run-tests 'collatz-conjecture-test)
+lein test collatz-conjecture-test
