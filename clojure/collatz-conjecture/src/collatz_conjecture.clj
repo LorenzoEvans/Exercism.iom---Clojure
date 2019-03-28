@@ -16,6 +16,7 @@
 ;         (odd? num) (+ (* 3 num) 1)
 ;         (even? num) (/ num 2))))
 ;   (recur num))
+
 ;
 ; (defn collatz
 ;   [num]
@@ -29,17 +30,24 @@
 ;             (even? x) (/ num 2)))))
 ;   (recur num))
 
+; (defn collatz [num]
+;   (loop [x num]
+;     (let [_ (println x)]
+;       (cond
+;         (= 1 num) 1
+;         (= 2 num) 1
+;         :else (recur
+;                (if (even? x)
+;                  (/ x 2)
+;                  (+ (* 3 x) 1)))))))
+
 (defn collatz [num]
   (loop [x num]
-    (cond
-      (= 1 x) 1
-      (= 2 x) 1
-      :else (recur
-              (if (even? x) (/ x 2)
-                (+ (* 3 x) 1))))))
-
-
-
-
-                     ;; <- arglist goes here
-  ;; your code goes here
+    (let [_ (println num)]
+      (cond
+        (= x 1) 1
+        (= x 2) 1
+        :else (recur
+               (if (even? x)
+                 (/ x 2)
+                 (+ (* 3 x) 1)))))))
