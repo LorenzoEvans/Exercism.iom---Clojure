@@ -43,9 +43,10 @@
 
 (defn collatz [num]
   (loop [x num]
-    (let [_ (println num)]
+    (let [_ (println x)]
       (cond
         (= num 1) 1
+        (<= x 0) (throw (ArithmeticException.))
         (= x 2) 1
         :else (recur
                (if (even? x)
