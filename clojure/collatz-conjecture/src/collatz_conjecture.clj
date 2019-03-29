@@ -45,7 +45,7 @@
   (loop [x num]
     (let [_ (println num)]
       (cond
-        (= x 1) 1
+        (= num 1) 1
         (= x 2) 1
         :else (recur
                (if (even? x)

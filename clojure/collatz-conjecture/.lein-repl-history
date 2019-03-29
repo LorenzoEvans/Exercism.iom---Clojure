@@ -8,3 +8,10 @@
 (require 'collatz-conjecture-test)
 (clojure.test/run-tests 'collatz-conjecture-test)
 lein test collatz-conjecture-test
+(require 'collatz-conjecture-test)
+(clojure.test/run-test 'collatz-conjecture-test)
+(clojure.test/run-tests 'collatz-conjecture-test)
+(take-nth 3 "012345")
+(first (take-nth 3 "012345"))
+(int \0)
+(Integer/parseInt \0)
