@@ -1,21 +1,22 @@
 (ns armstrong-numbers
-  (:require [clojure.edn :as edn]))
+  (:require [clojure.edn :as edn]
+            [clojure.string :as str]))
 
 (def edn edn/read-string)
+
+(defn armstrong? [num]
+  (let [str_num (str num)]
+    (let [num_len (count str_num)]
+      (loop [x 0 y 0]
+        (while (<= x num_len)
+          (do
+            (+ (* (edn (str (nth str_num x))) num_len) y)))))))
 
 ; (defn armstrong? [num]
 ;   (def str_num (str num))
 ;   ; Turns number into string
 ;   (def num_len (count str_num))
-;   (while (not= num_len 0)
-;     (println 2)))
-
-
-(defn armstrong? [num]
-  (def str_num (str num))
-  ; Turns number into string
-  (def num_len (count str_num))
-  (list num) num)
+;   (list num) num)
 
 
   ; Grabs length of number in string form, 1-indexed.
