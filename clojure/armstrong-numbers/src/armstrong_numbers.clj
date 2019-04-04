@@ -5,12 +5,15 @@
 (def edn edn/read-string)
 
 (defn armstrong? [num]
-  (let [str_num (str num)]
-    (let [num_len (count str_num)]
-      (loop [x 0 y 0]
-        (while (<= x num_len)
-          (do
-            (+ (* (edn (str (nth str_num x))) num_len) y)))))))
+  (let [str_num (str num)
+        str_len (count (str num))
+        y 0
+        _ (println y)]
+    (loop [x 0]
+      (while (<= x str_len)
+        (do
+          (+ (* (edn (str (nth str_num x))) str_len) y)))
+      (recur (inc x) y))))
 
 ; (defn armstrong? [num]
 ;   (def str_num (str num))
