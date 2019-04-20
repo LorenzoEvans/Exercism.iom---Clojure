@@ -1,0 +1,8 @@
+(require 'armstrong-numbers-test)
+(clojure.test/run-tests 'armstrong-numbers-test)
+(require 'armstrong-numbers-test)
+(clojure.test/run-tests 'armstrong-numbers-test)
+(exit)
+(require 'armstrong-numbers-test)
+(clojure.test/run-tests 'armstrong-numbers-test)
+21897142587612075

@@ -1,31 +1,34 @@
 (ns armstrong-numbers
-  (:require [clojure.edn :as edn]
-            [clojure.string :as str]))
+  (:require [clojure.string :as str]))
 
-(def edn edn/read-string)
+(defn expt
+  ; Pulls in exponentiation fn from Java's Math
+  [base exponent]
+  (Math/pow base exponent))
+
+(defn destring [num]
+  (def int-seq
+    (map #(Integer/parseInt (str %))
+         (seq (str num))))
+  int-seq)
+
+(defn arm-val [num]
+  (let [seq (destring num)
+        len (count (destring num))]
+    (let [new-seq (map #(expt % len) seq)]
+      new-seq)))
+
+(defn int-check [num]
+  (cond
+    (< 16 (count (arm-val num))) (- (reduce + (arm-val num)) 1)
+    :else (reduce + (arm-val num))))
 
 (defn armstrong? [num]
-  (let [str_num (str num)
-        str_len (count (str num))
-        y 0
-        _ (println y)]
-    (loop [x 0]
-      (while (<= x str_len)
-        (do
-          (+ (* (edn (str (nth str_num x))) str_len) y)))
-      (recur (inc x) y))))
+  (cond
+    (= (double num) (int-check num)) true
+    :else false))
 
 ; (defn armstrong? [num]
-;   (def str_num (str num))
-;   ; Turns number into string
-;   (def num_len (count str_num))
-;   (list num) num)
-
-
-  ; Grabs length of number in string form, 1-indexed.
-  ; ? Mutate num using num_len from here
-
-    ; take the first number, multiply it by num_len
-    ;  dec num_len (to satisfy conditional at some point
-    ; ?: will decrementing num_len throw off multiplying by num_len
-    ; A: Immutability implies no, but watch out for it anyway.
+;   (if
+;    (= (double num) (reduce +' (arm-val num))) true
+;    false))
