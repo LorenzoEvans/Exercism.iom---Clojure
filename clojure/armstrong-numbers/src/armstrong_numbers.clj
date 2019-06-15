@@ -1,10 +1,14 @@
 (ns armstrong-numbers
   (:require [clojure.string :as str]))
 
+; Use reduce for exponentiation, as Math/pow form Java has limited precision,
+; which is why we were having the issue with the 17 digit number.
+
+
 (defn expt
   ; Pulls in exponentiation fn from Java's Math
   [base exponent]
-  (Math/pow base exponent))
+  (reduce * (repeat base exponent)))
 
 (defn destring [num]
   (def int-seq
@@ -25,7 +29,7 @@
 
 (defn armstrong? [num]
   (cond
-    (= (double num) (int-check num)) true
+    (= (long num) (int-check num)) true
     :else false))
 
 ; (defn armstrong? [num]
