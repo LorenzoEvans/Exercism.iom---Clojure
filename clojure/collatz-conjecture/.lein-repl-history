@@ -60,3 +60,7 @@ lein test collatz-conjecture-test
 (exit)
 (require 'collatz-conjecture-test)
 (clojure.test/run-tests 'collatz-conjecture-test)
+(exit)
+(require 'collatz-conjecture-test)
+(clojure-test/run-tests 'collatz-conjecture-test)
+(clojure.test/run-tests 'collatz-conjecture-test)
