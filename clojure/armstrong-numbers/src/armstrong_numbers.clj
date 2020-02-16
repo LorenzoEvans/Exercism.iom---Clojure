@@ -20,22 +20,22 @@
   (if
    (= num (expt num)) true
    false))
-    ; (defn destring [num]
-   ;   (def int-seq
-   ;     (map #(Integer/parseInt (str %))
-   ;          (seq (str num))))
-   ;   int-seq)
-   ; (defn arm-val [num]
-   ;   (let [seq (destring num)
-   ;         len (count (destring num))]
-   ;     (let [new-seq (map #(expt % len) seq)]
-   ;       new-seq)))
-   ; (defn int-check [num]
-   ;   (cond
-   ;     (< 16 (count (arm-val num))) (- (reduce + (arm-val num)) 1)
-   ;     :else (reduce + (arm-val num))))
+(defn destring [num]
+  (def int-seq
+    (map #(Integer/parseInt (str %))
+        (seq (str num))))
+  int-seq)
+(defn arm-val [num]
+  (let [seq (destring num)
+        len (count (destring num))]
+    (let [new-seq (map #(expt % len) seq)]
+      new-seq)))
+(defn int-check [num]
+  (cond
+    (< 16 (count (arm-val num))) (- (reduce + (arm-val num)) 1)
+    :else (reduce + (arm-val num))))
 
-   ; (defn armstrong? [num]
-   ;   (cond
-   ;     (= (long num) (int-check num)) true
-   ;     :else false))
+(defn armstrong? [num]
+  (cond
+    (= (long num) (int-check num)) true
+    :else false))
