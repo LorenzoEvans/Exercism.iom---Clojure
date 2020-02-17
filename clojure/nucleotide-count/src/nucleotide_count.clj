@@ -1,18 +1,16 @@
 (ns nucleotide-count)
 
-(defn count [nucleotide strand]
-  (let [i n-t-count (len strand)]
-    (while (> n-t-count i))))
-     ;; <- Arglist goes here
+(defn count [nucleotide strand] ;; <- Arglist goes here
   ;; your code goes here
-
-
-(defn nucleotide-counts [strand]
-  (let [nt-map {}]
+  (let [nt-map {}
+        n-t nucleotide]
     (for [n-t strand]
       (if (contains? nt-map (keyword n-t)) (inc ((keyword n-t) nt-map))
                                            (assoc nt-map (keyword n-t) 1)))
-   nt-map))                                         
+   nt-map))
+
+(defn nucleotide-counts [strand]
+  (count strand))                                         
        ;; <- Arglist goes here
   ;; your code goes here
 ; What we know for sure, is there are four distinct values

@@ -1,0 +1,6 @@
+(require 'nucleotide-count-test)
+(clojure.test/run-tests)
+(clojure.test/run-tests 'nucleotide-count-test)
+(require 'nucleotide-count-test)
+(clojure.test/run-tests 'nucleotide-count-test)
+(System/exit 0)
