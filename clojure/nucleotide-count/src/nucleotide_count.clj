@@ -3,11 +3,11 @@
 (defn count [nucleotide strand] ;; <- Arglist goes here
   ;; your code goes here
   (let [nt-map {}
-        n-t nucleotide]
+        n-t (keyword nucleotide)]
     (for [n-t strand]
-      (if (contains? nt-map (keyword n-t)) (inc ((keyword n-t) nt-map))
-                                           (assoc nt-map (keyword n-t) 1)))
-   nt-map))
+      (if (contains? nt-map n-t) (inc (n-t nt-map))
+                                           (assoc nt-map n-t 1)))
+   (n-t tnt-map)))
 
 (defn nucleotide-counts [strand]
   (count strand))                                         
