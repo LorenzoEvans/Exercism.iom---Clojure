@@ -5,9 +5,8 @@
   (let [nt-map {}
         n-t (keyword nucleotide)]
     (for [n-t strand]
-      (if (contains? nt-map n-t) (inc (n-t nt-map))
-                                           (assoc nt-map n-t 1)))
-   (n-t tnt-map)))
+      (if (contains? nt-map :n-t) (inc (:n-t nt-map)) (assoc nt-map :n-t 1)))
+   (:n-t nt-map)))
 
 (defn nucleotide-counts [strand]
   (count strand))                                         
